@@ -31,5 +31,11 @@ steps:
   inputs:
     script: |
       cd html
-      tar -czvf ratings.tar.gz $(ls -A )
+      tar -czvf ratings-${BUILD_BUILDNUMBER}.tar.gz $(ls -A )
   displayName: Making Archive
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      curl -v -u admin:admin --upload-file ratings-${BUILD_BUILDNUMBER}.tar.gz https://nexus.devopsb47.online/repository/ratings/ratings-${BUILD_BUILDNUMBER}.tar.gz
+  displayName: Upload to Nexus
