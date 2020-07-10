@@ -31,5 +31,5 @@ steps:
   inputs:
     script: |
       cd html
-      tar -czvf ratings.tar.gz .
+      tar -czvf ratings.tar.gz $(ls -A )
   displayName: Making Archive
