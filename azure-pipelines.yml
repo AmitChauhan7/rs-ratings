@@ -26,3 +26,10 @@ steps:
     composer require overtrue/phplint --dev -vvv
     ./vendor/bin/phplint html
   displayName: 'Lint Check'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      cd html
+      tar -czvf ratings.tar.gz .
+  displayName: Making Archive
