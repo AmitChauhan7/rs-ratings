@@ -38,5 +38,5 @@ steps:
   inputs:
     script: |
       cd html
-      curl -v -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file ratings-${BUILD_BUILDNUMBER}.tar.gz https://nexus.devopsb47.online/repository/ratings/ratings-${BUILD_BUILDNUMBER}.tar.gz
+      curl -v -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file ratings-${BUILD_BUILDNUMBER}.tar.gz https://nexus.devopsb48.online/repository/ratings/ratings-${BUILD_BUILDNUMBER}.tar.gz
   displayName: Upload to Nexus
