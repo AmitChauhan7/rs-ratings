@@ -10,6 +10,7 @@ pool: AWS
 
 variables:
   phpVersion: 7.2
+  appName: 'ratings'
 
 steps:
 - script: |
@@ -50,5 +51,3 @@ steps:
       az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --project="DevOps48" --scope project --feed RoboShop --name  $(appName) --version 1.0.$(Build.BuildId) --description "$(appName)" --path .
   displayName: Publish Artifacts
 
-variables:
-  appName: "ratings"
