@@ -41,4 +41,14 @@ steps:
       curl -v -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file ratings-${BUILD_BUILDNUMBER}.tar.gz https://nexus.devopsb48.online/repository/ratings/ratings-${BUILD_BUILDNUMBER}.tar.gz
   displayName: Upload to Nexus
   env:
-    NEXUS_PASSWORD: $(NEXUS_PASSWORD)
+    NEXUS_PASSWORD: $(NEXUS_PASSWORD) 
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      cd html
+      az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --project="DevOps48" --scope project --feed RoboShop --name  $(appName) --version 1.0.$(Build.BuildId) --description "$(appName)" --path .
+  displayName: Publish Artifacts
+
+variables:
+  appName: "ratings"
