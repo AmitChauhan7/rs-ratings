@@ -9,7 +9,8 @@ pipeline {
         stage('Lint Checking code') {
                     steps {
                         sh '''
-                            phplint html
+                            composer require overtrue/phplint --dev -vvv
+                            ./vendor/bin/phplint html
                         '''
 
                     }
